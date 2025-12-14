@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: Decentralized-Chat-Application
+
+server:
+  port: 9090
