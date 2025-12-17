@@ -1,22 +1,20 @@
-package com.example.Decentralized_Chat_Application.config.signalling;
+package com.example.Decentralized_Chat_Application.signalling;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-
 import jakarta.annotation.PostConstruct;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.socket.*;
 
 @Component
-public class SignallingServer  extends TextWebSocketHandler {
+public class SignallingServer extends TextWebSocketHandler {
 
     private static final Logger log = LoggerFactory.getLogger(SignallingServer.class);
     private static final ObjectMapper MAPPER = new ObjectMapper();

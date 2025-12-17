@@ -1,11 +1,12 @@
 package com.example.Decentralized_Chat_Application.config;
 
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 
-import com.example.Decentralized_Chat_Application.config.signalling.SignallingServer;
+import com.example.Decentralized_Chat_Application.signalling.SignallingServer;
 
 @EnableWebSocket
 @Configuration
