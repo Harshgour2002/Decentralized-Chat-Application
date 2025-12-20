@@ -1,9 +1,6 @@
 package com.example.Decentralized_Chat_Application.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
