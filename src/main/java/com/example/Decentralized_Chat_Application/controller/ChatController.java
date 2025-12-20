@@ -1,14 +1,14 @@
 package com.example.Decentralized_Chat_Application.controller;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.Decentralized_Chat_Application.signalling.SignallingServer;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.example.Decentralized_Chat_Application.signalling.SignallingServer;
-
 @RestController
 @RequestMapping("/api/chat")
 public class chatController {
@@ -30,7 +30,8 @@ public class chatController {
     }
 
     @GetMapping("/status")
-    public ObjectNode status() {
+    public Map<String, Object> status() {
         return signalingHandler.getUsersStatus();
     }
+
 }
