@@ -43,12 +43,13 @@ public class SignallingServer extends TextWebSocketHandler {
         return new ArrayList<>(onlineUsers.keySet());
     }
 
-    public ObjectNode getUsersStatus() {
-        ObjectNode s = MAPPER.createObjectNode();
-        s.put("onlineCount", onlineUsers.size());
-        s.put("timestamp", System.currentTimeMillis());
-        return s;
+    public Map<String, Object> getUsersStatus() {
+        Map<String, Object> status = new HashMap<>();
+        status.put("onlineCount", onlineUsers.size());
+        status.put("timestamp", System.currentTimeMillis());
+        return status;
     }
+
 
     public List<String> getFriends(String userId) {
         return new ArrayList<>(friendsMap.getOrDefault(userId, Set.of()));
