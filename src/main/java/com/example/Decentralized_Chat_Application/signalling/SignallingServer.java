@@ -31,9 +31,11 @@ public class SignallingServer extends TextWebSocketHandler {
     /* ---------------- MOCK FRIEND DATA ---------------- */
     @PostConstruct
     private void loadFriends() {
-        friendsMap.put("user1", Set.of("user2", "user3"));
-        friendsMap.put("user2", Set.of("user1"));
-        friendsMap.put("user3", Set.of("user1"));
+        friendsMap.put("user1", Set.of("user2", "user3", "user4"));
+        friendsMap.put("user2", Set.of("user1", "user3", "user5"));
+        friendsMap.put("user3", Set.of("user1", "user2"));
+        friendsMap.put("user4", Set.of("user1", "user5"));
+        friendsMap.put("user5", Set.of("user2", "user4"));
     }
 
     /* ---------------- REST HELPERS ---------------- */
@@ -46,6 +48,10 @@ public class SignallingServer extends TextWebSocketHandler {
         s.put("onlineCount", onlineUsers.size());
         s.put("timestamp", System.currentTimeMillis());
         return s;
+    }
+
+    public List<String> getFriends(String userId) {
+        return new ArrayList<>(friendsMap.getOrDefault(userId, Set.of()));
     }
 
     /* ---------------- WEBSOCKET LIFECYCLE ---------------- */
@@ -176,4 +182,4 @@ public class SignallingServer extends TextWebSocketHandler {
         onlineUsers.remove(userId);
         notifyFriendsPresence(userId, false);
     }
-}
+}               
